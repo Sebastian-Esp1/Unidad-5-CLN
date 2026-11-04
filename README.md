@@ -27,6 +27,7 @@ El módulo `sazon_urbano` adapta tres reglas del paquete de datos del PIA (Sazó
 | `src/sazon_application.py` | `ServicioOperaciones` con un notificador a cocina (puerto) |
 | `src/sazon_repository.py` | Persistencia de operaciones con SQLAlchemy |
 | `tests/` | Pruebas del dominio, repositorio, servicio, seguridad y Sazón Urbano |
+| `docs/coverage_verde.css` | Tema verde del reporte HTML de cobertura (se carga desde `pyproject.toml`) |
 | `docs/matriz_casos_prueba.csv` | Matriz de 16 casos (7 éxito, 5 error, 4 límite) |
 | `docs/matriz_pia_sazon_urbano.csv` | Matriz de 15 casos de Sazón Urbano |
 | `.github/workflows/ci.yml` | Pipeline: Ruff, pytest con cobertura mínima de 80 % y compilación |
@@ -42,7 +43,7 @@ El módulo `sazon_urbano` adapta tres reglas del paquete de datos del PIA (Sazó
 | Revisar el estilo | `python -m ruff check src tests` |
 | Cobertura con reporte HTML | `python -m pytest -v --cov=src --cov-report=term-missing --cov-report=html --cov-fail-under=80` |
 
-Si PowerShell no activa el entorno, usa `.venv\Scripts\python.exe -m pytest -v`. El reporte HTML queda en `htmlcov/index.html`.
+Si PowerShell no activa el entorno, usa `.venv\Scripts\python.exe -m pytest -v`. El reporte HTML queda en `htmlcov/index.html`, con el tema verde de `docs/coverage_verde.css`.
 
 ## 4. Reglas que se prueban
 

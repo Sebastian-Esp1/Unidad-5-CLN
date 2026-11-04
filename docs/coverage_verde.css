@@ -1,0 +1,39 @@
+/* Tema verde para el reporte de cobertura (htmlcov). Se carga con extra_css en pyproject.toml. */
+:root { --verde: #1B5E3A; --verde-2: #2E7D52; --claro: #EEF6F0; --medio: #D3EAD9; --borde: #A9CDB5; }
+
+body { background: #F3F8F4 !important; color: #1d2b24 !important;
+       font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; }
+
+/* Encabezado */
+header { background: linear-gradient(135deg, var(--verde), var(--verde-2)) !important; border: 0 !important;
+         box-shadow: 0 3px 10px rgba(0, 0, 0, .18); }
+header, header h1, header h2, header p, header p.text, header a.nav, header label { color: #fff !important; }
+header h1 { font-size: 1.6em; letter-spacing: .2px; }
+header .pc_cov { background: #fff; color: var(--verde) !important; padding: .05em .6em; margin-left: .3em;
+                 border-radius: 999px; font-weight: 700; }
+header h2 a.button, header button { background: rgba(255, 255, 255, .16) !important; color: #fff !important;
+                 border: 1px solid rgba(255, 255, 255, .55) !important; border-radius: 999px !important; padding: .2em 1em !important; }
+header h2 a.button.current { background: #fff !important; color: var(--verde) !important; border-color: #fff !important; font-weight: 600; }
+#filter_container input[type=text] { background: rgba(255, 255, 255, .95) !important; color: #1d2b24 !important;
+                 border: 0 !important; border-radius: 999px; padding: .3em .9em; }
+
+/* Tabla de archivos como tarjeta */
+#index { max-width: 1100px; margin: 1.8rem auto !important; padding: 0 1rem; font-family: "Segoe UI", Roboto, Arial, sans-serif !important; font-size: 1em !important; }
+#index table.index { width: 100%; margin: 0 !important; background: #fff; border-collapse: separate; border-spacing: 0;
+                     border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(27, 94, 58, .15); }
+#index th { background: var(--medio) !important; color: var(--verde) !important; font-weight: 700; padding: .8em .9em !important;
+            border-bottom: 2px solid var(--borde) !important; }
+#index td { padding: .75em .9em !important; border-bottom: 1px solid #e3efe6 !important; color: #1d2b24; }
+#index td.name, #index th.name { text-align: left; }
+#index tr.region:nth-child(even) td { background: var(--claro); }
+#index tr.region:hover td { background: var(--medio); }
+#index td a { color: var(--verde) !important; font-weight: 600; text-decoration: none; }
+#index td a:hover { text-decoration: underline; }
+#index td:last-child { font-weight: 700; color: var(--verde); }
+#index tfoot td, #index tr.total td { background: var(--verde) !important; color: #fff !important; font-weight: 700; border: 0 !important; }
+
+/* Páginas de código fuente */
+#source p { font-family: Consolas, "Cascadia Mono", Menlo, monospace; }
+#source p.run .t { background: #e3f4e8 !important; border-left-color: #2E9B57 !important; }
+#source p.mis .t { background: #fde4e4 !important; }
+footer .content, footer .content a { color: #4b6657 !important; }

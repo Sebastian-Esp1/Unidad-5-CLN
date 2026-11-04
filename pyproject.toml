@@ -3,5 +3,9 @@ testpaths = ["tests"]
 pythonpath = ["."]
 [tool.coverage.run]
 source = ["src"]
+
+[tool.coverage.html]
+title = "Reporte de cobertura · Unidad 5"
+extra_css = "docs/coverage_verde.css"
 [tool.ruff]
 line-length = 100
