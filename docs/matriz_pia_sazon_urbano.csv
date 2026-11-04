@@ -1,0 +1,16 @@
+﻿id,regla,entrada,resultado_esperado,tipo,prueba_automatizada,resultado_real,estado
+CP-01,R1 puede_procesarse,"PED-O001: actor activo, 2 líneas, autorizada",True,Éxito,test_r1_exito_actor_activo_con_lineas_y_autorizada,True,OK
+CP-02,R1 puede_procesarse,PED-O013: sin líneas de detalle,False,Error,test_r1_error_detalle_vacio,False,OK
+CP-03,R1 puede_procesarse,PED-O003: exactamente 1 línea,True,Límite,test_r1_limite_una_sola_linea_es_suficiente,True,OK
+CP-04,R1 puede_procesarse,PED-O008: no autorizada,False,Error,test_r1_error_no_autorizada,False,OK
+CP-05,R1 puede_procesarse,PED-O029: actor inactivo,False,Error,test_r1_error_actor_inactivo,False,OK
+CP-06,R2 beneficio de referencia,"PED-O023: preferente, total 6284, sin promoción",True,Éxito,test_r2_exito_preferente_sobre_umbral_sin_promocion,True,OK
+CP-07,R2 beneficio de referencia,"PED-O018: preferente, total 6556, con promoción",False,Error,test_r2_error_con_promocion_activa,False,OK
+CP-08,R2 beneficio de referencia,"Preferente, total exactamente 1500.00",True,Límite,test_r2_limite_exactamente_1500_si_califica,True,OK
+CP-09,R2 beneficio de referencia,"Preferente, total 1499.99",False,Límite,test_r2_limite_1499_99_no_califica,False,OK
+CP-10,R3 transiciones de estado,PED-O001: aceptar desde CREADO,"ACEPTADO, eventos=['OperacionAceptada']",Éxito,test_r3_exito_aceptar_registra_evento,"ACEPTADO, eventos=['OperacionAceptada']",OK
+CP-11,R3 transiciones de estado,PED-O003: aceptar dos veces (repetir_aprobacion),TransicionInvalida,Error,test_r3_error_repetir_aprobacion,TransicionInvalida,OK
+CP-12,R3 transiciones de estado,PED-O002: cancelar desde CREADO,CANCELADO,Límite,test_r3_limite_cancelar_desde_creado,CANCELADO,OK
+CP-13,R3 transiciones de estado,PED-O004: entregar desde CREADO (saltar_estado),TransicionInvalida,Error,test_r3_error_saltar_estado,TransicionInvalida,OK
+CP-14,Persistencia (SQLite en memoria),Guardar PED-O001 con commit,"estado=CREADO, total=7426.00",Éxito,test_guarda_operacion_con_commit,"estado=CREADO, total=7426.00",OK
+CP-15,Servicio con notificador simulado,Aceptar PED-O001 con Mock,avisar_cocina llamado 1 vez con PED-O001,Éxito,test_aceptar_notifica_a_cocina_una_vez,avisar_cocina llamado 1 vez con PED-O001,OK

@@ -1,0 +1,17 @@
+﻿id,regla,entrada,resultado_esperado,tipo,prueba_automatizada,resultado_real,estado
+M01,Descuento VIP 15 %,"Pedido 100, VIP","cobro 85, CONFIRMED",Éxito,test_vip_discount,"cobro 85, CONFIRMED",OK
+M02,Cliente regular sin descuento,"Pedido 100, regular","cobro 100, CONFIRMED",Éxito,test_regular_no_discount,"cobro 100, CONFIRMED",OK
+M03,Descuento VIP 15 %,"Pedido 200, VIP","cobro 170, CONFIRMED",Éxito,test_vip_discount_total_200,"cobro 170, CONFIRMED",OK
+M04,Cliente regular sin descuento,"Pedido 200, regular","cobro 200, CONFIRMED",Éxito,test_regular_customer_total_200_has_no_discount,"cobro 200, CONFIRMED",OK
+M05,Cobro aprobado (mock),"Pedido 100, pasarela responde True",cobro 100,Éxito,test_gateway_approved,cobro 100,OK
+M06,No confirmar con deuda,"Pedido 100, deuda 50",CustomerHasDebt,Error,test_customer_debt,CustomerHasDebt,OK
+M07,Total debe ser positivo,Total -1,ValueError,Error,test_invalid_total[-1],ValueError,OK
+M08,Cobro rechazado (mock),"Pedido 100, pasarela responde False",RuntimeError: payment rejected,Error,test_gateway_rejected,RuntimeError: payment rejected,OK
+M09,No confirmar dos veces,confirm() dos veces,ValueError: already confirmed,Error,test_cannot_confirm_twice,ValueError: already confirmed,OK
+M10,Total debe ser positivo,Total 0,ValueError,Límite,test_invalid_total[0],ValueError,OK
+M11,Total mínimo válido,Total 0.01,"cobro 0.01, CONFIRMED",Límite,test_smallest_positive_total_is_valid,"cobro 0.01, CONFIRMED",OK
+M12,Dueño cancela solo en las primeras 24 h,"Dueño, estado NEW, exactamente 24 h",Denegado,Límite,test_owner_exactly_24h_is_denied,Denegado,OK
+M13,Administrador puede cancelar,"Admin, pedido NEW de otro usuario",Permitido,Éxito,test_admin_can_cancel_new_order_of_another_user,Permitido,OK
+M14,Un pedido enviado nunca se cancela,"Admin, estado SHIPPED",Denegado,Error,test_shipped_denied_even_admin,Denegado,OK
+M15,Persistencia con commit,"Guardar pedido id=2, total 250","id=2, total=250, estado=NEW",Éxito,test_repository_commit_order_250,"id=2, total=250, estado=NEW",OK
+M16,Dueño cancela solo en las primeras 24 h,"Dueño, estado NEW, 23 h 59 min",Permitido,Límite,test_owner_just_before_24h_is_allowed,Permitido,OK
