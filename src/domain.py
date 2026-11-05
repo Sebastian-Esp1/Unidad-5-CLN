@@ -15,8 +15,8 @@ class Order:
     def confirm(self, customer_debt=0):
         # TDD (fase GREEN): esta guarda se agregó después de escribir la prueba
         # test_cannot_confirm_twice. Sin estas dos líneas esa prueba falla (fase RED).
-        # if self.status == "CONFIRMED":
-        #     raise ValueError("already confirmed")
+        if self.status == "CONFIRMED":
+            raise ValueError("already confirmed")
         if self.total <= 0:
             raise ValueError("total must be positive")
         if customer_debt > 0:
